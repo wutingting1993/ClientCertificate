@@ -8,8 +8,8 @@
 
 ### Configs
 
-- certificates and keystore file: ClientCertificate/tree/master/certificates
-- nginx.config: src/main/resources/nginx.conf
+- certificates and keystore file: https://github.com/wutingting1993/ClientCertificate/tree/master/certificates
+- nginx.config: https://github.com/wutingting1993/ClientCertificate/blob/master/src/main/resources/nginx.conf
 
 ---
 
@@ -30,21 +30,21 @@
 #### step 4:nginx config (Root CA) and start
 ```
 server {
-	client_max_body_size 100M;
+    client_max_body_size 100M;
     listen       443 ssl;
 		
-	#server_name 9a2fjk9c79.dev-server.aaa.com
+    #server_name 9a2fjk9c79.dev-server.aaa.com
 
-	ssl_certificate "server.pem";
+    ssl_certificate "server.pem";
     ssl_certificate_key "server_private_key.key";
     ssl_password_file "server_password.sh";
 	
     # self sign certificate
     #ssl_client_certificate "client.crt";
     ssl_client_certificate "RootCert.pem"; <<<<<<<<<<<<<<< Root CA 
-	ssl_verify_client on;
-
-	ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
+    ssl_verify_client on;
+    
+    ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
     ssl_prefer_server_ciphers on;
     ssl_session_cache shared:SSL:10m;
     ssl_session_timeout 10m;
