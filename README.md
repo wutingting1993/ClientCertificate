@@ -66,3 +66,26 @@ https://blog.csdn.net/u012175637/article/details/84138925
 ![image](https://user-images.githubusercontent.com/12660487/108589170-1b967300-7398-11eb-8db3-524d43486d4e.png)
 
 
+ClientHandshaker  process
+---
+[ClientHandShaker.vsd.txt](https://github.com/wutingting1993/ClientCertificate/files/6014429/ClientHandShaker.vsd.txt)
+
+
+### ClientHandshaker （ALL process）
+![image](https://user-images.githubusercontent.com/12660487/108589286-b727e380-7398-11eb-8909-0ddd4974da86.png)
+
+#### serverHello
+![image](https://user-images.githubusercontent.com/12660487/108589306-bbec9780-7398-11eb-84ed-7e1b4cdc67c3.png)
+#### serverHelloDone
+![image](https://user-images.githubusercontent.com/12660487/108589319-c0b14b80-7398-11eb-84ec-a8e8329dde6d.png)
+
+#### serverFinished
+![image](https://user-images.githubusercontent.com/12660487/108589325-c4dd6900-7398-11eb-89f4-e9fd3f5dc3dc.png)
+
+#### session data struct
+![image](https://user-images.githubusercontent.com/12660487/108589329-c9098680-7398-11eb-9cde-b4ce6001fc28.png)
+
+- **if  can get session from cache, will resume the session, and session hold the certificates and private-key.  Therefore, even if the keystore is reloaded, the session certificate and private key will not be updated.**
+- session default ttl is 24H, and we can change the ttl.
+- if session is invalid (expire,local sessionId not equal to endpoint given sessionId), will be removed form cache.
+
