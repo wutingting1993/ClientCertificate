@@ -53,3 +53,16 @@ server {
     }
 ```
 #### step 5:run issuedClientCertificationTest
+
+# 图解SSL/TLS认证流程
+https://blog.csdn.net/u012175637/article/details/84138925
+
+红色部分为服务器端消息，紫色部分为客户端消息，黑色部分为双向认证需要的消息，绿色部分为某些情况下的特殊需求，这里不做详细的解释。
+
+下图内容都可以通过wireshare 抓包看到具体的内容，有什么不清楚的可以通过wireshare 抓包自己看一下就会一目了然了。
+
+简单来说SSL握手的目的就是为了获得客户端和服务器进行通信时使用的秘钥，根据不同的需求选择单向认证或者双向认证
+
+![image](https://user-images.githubusercontent.com/12660487/108589170-1b967300-7398-11eb-8db3-524d43486d4e.png)
+
+
